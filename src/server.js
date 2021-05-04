@@ -1,8 +1,10 @@
 const express = require("express")
 const server = express()
+const routes = require("./routes")
 
-server.get('/', (request, response) => {
-  return response.sendFile(__dirname + "/views/index.html")
-})
+//habilitar arquivos statics (estáticos)
+server.use(express.static("public"))
 
+// routes
+server.use(routes)
 server.listen(3000, () => console.log("server rodando"))
