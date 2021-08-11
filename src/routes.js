@@ -68,7 +68,7 @@ const Job = {
         }
       })
       
-      return res.render(views + "index", { jobs:updatedJobs })
+      return res.render(views + "index", { jobs:updatedJobs, profile:Profile.data})  
     },
     save(req, res) {
         // req.body = { name: 'rafa', 'daily-hours': '8', 'total-hours': '1' }
