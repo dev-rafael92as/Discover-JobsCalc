@@ -34,7 +34,7 @@
           Você tem 2 horas livres no seu dia
         </span>
         <a href="/profile" id="avatar-profile">
-          <p>Jakeliny <span>Ver perfil</span></p>
+          <p>Rafa  <span>Ver perfil</span></p>
           <img src="https://avatars.githubusercontent.com/u/17316392?s=460&u=6912a91a70bc89745a2079fdcdad3bc3ce370f13&v=4" />
         </a>
       </section>
@@ -74,21 +74,21 @@
 
       <div class="cards">
         <% jobs.forEach( (jobs) => { %>
-          <div class="card progress" data-id="1">
-            <div class="id column">1</div>
+          <div class="card <%= jobs.status %> " data-id="<%= jobs.id %>">
+            <div class="id column"><%= jobs.id %></div>
             <div class="name column">
-              Pizzaria Guloso
+             <%= jobs.name %> 
             </div>
             <div class="deadline column">
               <span>Prazo</span>
-              <p>3 dias para a entrega</p>
+              <p><%= jobs.remaining === 0 ? 'Prazo encerrado' : `${jobs.remaining} dias para a entrega`%>  </p>
             </div>
             <div class="amount column">
               <span>Valor</span>
-              <p>R$ 4500,00</p>
+              <p>R$ <%= jobs.budget.toFixed(2).replace('.',',') %> </p>
             </div>
             <div class="status badge column">
-              Em andamento
+              <%= jobs.status === 'done'? 'Encerrado' : 'Em andamento' %> 
             </div>
             <div class="actions column flex">
               <p class="sr-only">Ações</p>
